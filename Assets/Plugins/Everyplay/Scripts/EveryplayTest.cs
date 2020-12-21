@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class EveryplayTest : MonoBehaviour
@@ -7,7 +8,7 @@ public class EveryplayTest : MonoBehaviour
     private bool isRecording = false;
     private bool isPaused = false;
     private bool isRecordingFinished = false;
-    private GUIText uploadStatusLabel;
+    private Text uploadStatusLabel;
 
     void Awake()
     {
@@ -60,17 +61,16 @@ public class EveryplayTest : MonoBehaviour
 
     private void CreateUploadStatusLabel()
     {
-        GameObject uploadStatusLabelObj = new GameObject("UploadStatus", typeof(GUIText));
+        GameObject uploadStatusLabelObj = new GameObject("UploadStatus", typeof(Text));
 
         if (uploadStatusLabelObj)
         {
             uploadStatusLabelObj.transform.parent = transform;
-            uploadStatusLabel = uploadStatusLabelObj.GetComponent<GUIText>();
+            uploadStatusLabel = uploadStatusLabelObj.GetComponent<Text>();
 
             if (uploadStatusLabel != null)
             {
-                uploadStatusLabel.anchor = TextAnchor.LowerLeft;
-                uploadStatusLabel.alignment = TextAlignment.Left;
+                uploadStatusLabel.alignment = TextAnchor.LowerLeft;
                 uploadStatusLabel.text = "Not uploading";
             }
         }

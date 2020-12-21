@@ -56,7 +56,7 @@ public class PointSelector : Editor
             GUILayout.EndArea();
             Handles.EndGUI();
         }
-        if (Event.current != null && Event.current.type == EventType.mouseMove)
+        if (Event.current != null && Event.current.type == EventType.MouseMove)
         {
             RaycastHit hit;
             Ray ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
