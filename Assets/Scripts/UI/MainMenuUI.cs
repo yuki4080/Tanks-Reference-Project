@@ -47,8 +47,6 @@ namespace Tanks.UI
 		protected LobbyPlayerList m_PlayerList;
 		[SerializeField]
 		protected SettingsModal m_SettingsModal;
-		[SerializeField]
-		protected SharingModal m_SharingModal;
 
 		[SerializeField]
 		protected GameObject m_QuitButton;
@@ -116,11 +114,6 @@ namespace Tanks.UI
 			else
 			{
 				Debug.LogError("Missing quitButton from MainMenuUI");
-			}
-
-			if (m_SharingModal != null)
-			{
-				m_SharingModal.ShowIfRecording();
 			}
 			
 			//Used to return to correct page on return to menu

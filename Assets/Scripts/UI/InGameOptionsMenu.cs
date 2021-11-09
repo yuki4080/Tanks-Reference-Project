@@ -68,9 +68,6 @@ namespace Tanks.UI
 			gameObject.SetActive(false);
 			ToggleInput(true);
 
-			//We check our Everyplay settings and status, in case it's just been enabled in the settings menu.
-			CheckEveryplay();
-
 			if (resumed != null)
 			{
 				resumed();
@@ -176,30 +173,6 @@ namespace Tanks.UI
 			}
 
 			m_InputModules = TankShooting.s_LocalTank.gameObject.GetComponentsInChildren<TankInputModule>();
-		}
-
-		//Change everyplay to suit current game settings.
-		private void CheckEveryplay()
-		{
-			if (Everyplay.IsSupported())
-			{
-				if (PlayerDataManager.s_Instance.everyplayEnabled)
-				{
-					//If everyplay is enabled and not recording, set it going.
-					if (!Everyplay.IsRecording() && Everyplay.IsReadyForRecording())
-					{
-						Everyplay.StartRecording();
-					}
-				}
-				else
-				{
-					//If everyplay has been disabled and it's still recording, stop it.
-					if (Everyplay.IsRecording())
-					{
-						Everyplay.StopRecording();
-					}
-				}
-			}
 		}
 	}
 }

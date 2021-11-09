@@ -812,20 +812,7 @@ namespace Tanks
 		{
 			if (PlayerDataManager.s_InstanceExists && PlayerDataManager.s_Instance.everyplayEnabled)
 			{
-				// Start recording!
-				if (Everyplay.IsRecordingSupported())
-				{
-					SetGameSettings();
-					Everyplay.StartRecording();
-					if (m_GameSettings.mode != null)
-					{
-						Everyplay.SetMetadata("game_mode", m_GameSettings.mode.modeName);
-					}
-					if (m_GameSettings.map != null)
-					{
-						Everyplay.SetMetadata("level", m_GameSettings.map.name);
-					}
-				}
+				SetGameSettings();
 			}
 		}
 
@@ -913,16 +900,6 @@ namespace Tanks
 			if (m_EndGameModal != null)
 			{
 				m_EndGameModal.Show();
-			}
-
-			if (Everyplay.IsRecording())
-			{
-				int tankIndex = s_Tanks.IndexOf(m_LocalPlayer);
-				if (tankIndex >= 0)
-				{
-					Everyplay.SetMetadata("final_position", tankIndex + 1);
-				}
-				Everyplay.StopRecording();
 			}
 
 			// Tell menu UI that we'll be returning to the lobby scene

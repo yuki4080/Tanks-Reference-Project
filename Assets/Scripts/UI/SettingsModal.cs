@@ -104,7 +104,7 @@ namespace Tanks.UI
 				m_TouchDevicesOnly[i].SetActive(touchDevice);
 			}
 
-			bool everyplaySupported = Everyplay.IsSupported() && Everyplay.IsRecordingSupported();
+			bool everyplaySupported = false;
 			for (int i = 0; i < m_EveryplayCompatibleDevicesOnly.Length; i++)
 			{
 				m_EveryplayCompatibleDevicesOnly[i].SetActive(everyplaySupported);
