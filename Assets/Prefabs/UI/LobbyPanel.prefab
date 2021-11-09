@@ -1912,7 +1912,7 @@ GameObject:
   - component: {fileID: 114000013809028026}
   - component: {fileID: 114000011766243792}
   - component: {fileID: 114000010338727146}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LobbyPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

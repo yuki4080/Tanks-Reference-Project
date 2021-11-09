@@ -5159,6 +5159,7 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
+  m_ShouldActivateOnSelect: 1
 --- !u!1 &1000013189387248
 GameObject:
   m_ObjectHideFlags: 0
@@ -6306,7 +6307,7 @@ GameObject:
   - component: {fileID: 224000012622805236}
   - component: {fileID: 225000013929353786}
   - component: {fileID: 114000011907433906}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CustomizationPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

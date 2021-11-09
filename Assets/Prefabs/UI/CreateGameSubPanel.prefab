@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 225000010123641042}
   - component: {fileID: 114000011043763714}
   - component: {fileID: 114000014071287672}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CreateGameSubPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3201,6 +3201,7 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
+  m_ShouldActivateOnSelect: 1
 --- !u!1 &1000014070046074
 GameObject:
   m_ObjectHideFlags: 0
