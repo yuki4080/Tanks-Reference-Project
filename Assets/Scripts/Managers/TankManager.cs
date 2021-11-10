@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using Tanks.Data;
-using Tanks.Analytics;
 using TanksNetworkPlayer = Tanks.Networking.NetworkPlayer;
 using TanksNetworkManager = Tanks.Networking.NetworkManager;
 
@@ -206,13 +205,7 @@ namespace Tanks.TankControllers
 			// Analytics messages on server
 			if (isServer)
 			{
-				AnalyticsHelper.PlayerUsedTankInGame(playerTankType.id);
-
 				TankDecorationDefinition itemData = TankDecorationLibrary.s_Instance.GetDecorationForIndex(player.tankDecoration);
-				if (itemData.id != "none")
-				{
-					AnalyticsHelper.PlayerUsedDecorationInGame(itemData.id);
-				}
 			}
 
 			// Get references to the components.

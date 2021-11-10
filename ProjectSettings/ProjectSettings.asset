@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 0
-  companyName: DefaultCompany
-  productName: Tanks-Reference-Project
+  companyName: Unity Technologies
+  productName: Tanks!!!
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -63,7 +63,7 @@ PlayerSettings:
   preserveFramebufferAlpha: 0
   disableDepthAndStencilBuffers: 0
   androidStartInFullscreen: 1
-  androidRenderOutsideSafeArea: 1
+  androidRenderOutsideSafeArea: 0
   androidUseSwappy: 0
   androidBlitType: 0
   androidResizableWindow: 0
@@ -180,7 +180,9 @@ PlayerSettings:
     iPhone: com.unity3d.tanksiii
     tvOS: com.unity3d.tanksiii
   buildNumber:
+    Standalone: 0
     iPhone: 28
+    tvOS: 0
   AndroidBundleVersionCode: 28
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
@@ -197,10 +199,10 @@ PlayerSettings:
   StripUnusedMeshComponents: 1
   VertexChannelCompressionMask: 214
   iPhoneSdkVersion: 988
-  iOSTargetOSVersionString: 10.0
+  iOSTargetOSVersionString: 11.0
   tvOSSdkVersion: 0
   tvOSRequireExtendedGameController: 0
-  tvOSTargetOSVersionString: 10.0
+  tvOSTargetOSVersionString: 11.0
   uIPrerenderedIcon: 0
   uIRequiresPersistentWiFi: 0
   uIRequiresFullScreen: 1
@@ -253,10 +255,10 @@ PlayerSettings:
   iOSRequireARKit: 0
   iOSAutomaticallyDetectAndAddCapabilities: 1
   appleEnableProMotion: 0
-  clonedFromGUID: 325b78e9bddb1a14ea256339ef2bc7c6
+  clonedFromGUID: 00000000000000000000000000000000
   templatePackageId: 
   templateDefaultScene: 
-  AndroidTargetArchitectures: 1
+  AndroidTargetArchitectures: 5
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
@@ -300,15 +302,21 @@ PlayerSettings:
     m_GraphicsJobs: 0
   - m_BuildTarget: MetroSupport
     m_GraphicsJobs: 0
+  - m_BuildTarget: GameCoreScarlettSupport
+    m_GraphicsJobs: 0
   - m_BuildTarget: AppleTVSupport
     m_GraphicsJobs: 0
   - m_BuildTarget: BJMSupport
     m_GraphicsJobs: 0
   - m_BuildTarget: LinuxStandaloneSupport
     m_GraphicsJobs: 0
+  - m_BuildTarget: GameCoreXboxOneSupport
+    m_GraphicsJobs: 0
   - m_BuildTarget: PS4Player
     m_GraphicsJobs: 0
   - m_BuildTarget: iOSSupport
+    m_GraphicsJobs: 0
+  - m_BuildTarget: PS5Player
     m_GraphicsJobs: 0
   - m_BuildTarget: WindowsStandaloneSupport
     m_GraphicsJobs: 0
@@ -332,7 +340,7 @@ PlayerSettings:
     m_APIs: 02000000
     m_Automatic: 1
   - m_BuildTarget: iOSSupport
-    m_APIs: 08000000
+    m_APIs: 10000000
     m_Automatic: 1
   m_BuildTargetVRSettings:
   - m_BuildTarget: Android
@@ -419,9 +427,9 @@ PlayerSettings:
   switchSocketConcurrencyLimit: 14
   switchScreenResolutionBehavior: 2
   switchUseCPUProfiler: 0
-  switchApplicationID: 0x0005000C10000001
+  switchApplicationID: 0x0100c3a00d58c000
   switchNSODependencies: 
-  switchTitleNames_0: 
+  switchTitleNames_0: Tanks!!!
   switchTitleNames_1: 
   switchTitleNames_2: 
   switchTitleNames_3: 
@@ -437,7 +445,7 @@ PlayerSettings:
   switchTitleNames_13: 
   switchTitleNames_14: 
   switchTitleNames_15: 
-  switchPublisherNames_0: 
+  switchPublisherNames_0: Unity Technologies
   switchPublisherNames_1: 
   switchPublisherNames_2: 
   switchPublisherNames_3: 
@@ -453,7 +461,7 @@ PlayerSettings:
   switchPublisherNames_13: 
   switchPublisherNames_14: 
   switchPublisherNames_15: 
-  switchIcons_0: {fileID: 0}
+  switchIcons_0: {fileID: 2800000, guid: cafe37e57a2fa014cbc563fc207af799, type: 3}
   switchIcons_1: {fileID: 0}
   switchIcons_2: {fileID: 0}
   switchIcons_3: {fileID: 0}
@@ -489,20 +497,20 @@ PlayerSettings:
   switchAccessibleURLs: 
   switchLegalInformation: 
   switchMainThreadStackSize: 1048576
-  switchPresenceGroupId: 0x0005000C10000001
+  switchPresenceGroupId: 
   switchLogoHandling: 0
   switchReleaseVersion: 0
   switchDisplayVersion: 1.0.0
   switchStartupUserAccount: 0
   switchTouchScreenUsage: 0
-  switchSupportedLanguagesMask: 0
+  switchSupportedLanguagesMask: 1
   switchLogoType: 0
   switchApplicationErrorCodeCategory: 
-  switchUserAccountSaveDataSize: 0
-  switchUserAccountSaveDataJournalSize: 0
+  switchUserAccountSaveDataSize: 49152
+  switchUserAccountSaveDataJournalSize: 49152
   switchApplicationAttribute: 0
-  switchCardSpecSize: 4
-  switchCardSpecClock: 25
+  switchCardSpecSize: -1
+  switchCardSpecClock: -1
   switchRatingsMask: 0
   switchRatingsInt_0: 0
   switchRatingsInt_1: 0
@@ -517,7 +525,7 @@ PlayerSettings:
   switchRatingsInt_10: 0
   switchRatingsInt_11: 0
   switchRatingsInt_12: 0
-  switchLocalCommunicationIds_0: 0x0005000C10000001
+  switchLocalCommunicationIds_0: 
   switchLocalCommunicationIds_1: 
   switchLocalCommunicationIds_2: 
   switchLocalCommunicationIds_3: 
@@ -670,12 +678,20 @@ PlayerSettings:
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
     1: SKIP_IAP
-    4: EVERYPLAY_IPHONE;SKIP_IAP
-    7: EVERYPLAY_ANDROID;SKIP_IAP
-    25: 
+    4: SKIP_IAP
+    7: SKIP_IAP
+    19: UNITY_CONSOLE
+    21: UNITY_CONSOLE
+    25: SKIP_IAP
+    27: UNITY_CONSOLE
+    29: UNITY_CONSOLE
+    31: UNITY_CONSOLE
+    32: UNITY_CONSOLE
+    33: UNITY_CONSOLE
   platformArchitecture:
-    iPhone: 2
+    iPhone: 1
   scriptingBackend:
+    : 1
     Android: 0
     Standalone: 0
     WP8: 2
@@ -690,7 +706,7 @@ PlayerSettings:
   allowUnsafeCode: 0
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
-  gcIncremental: 0
+  gcIncremental: 1
   assemblyVersionValidation: 1
   gcWBarrierValidation: 0
   apiCompatibilityLevelPerPlatform: {}

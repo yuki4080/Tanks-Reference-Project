@@ -10,7 +10,6 @@ using Tanks.UI;
 using Tanks.Map;
 using Tanks.Hazards;
 using Tanks.Explosions;
-using Tanks.Analytics;
 using Tanks.Rules.SinglePlayer;
 using Tanks.Networking;
 using TanksNetworkManager = Tanks.Networking.NetworkManager;
@@ -277,15 +276,8 @@ namespace Tanks
 
 			if (m_GameSettings.isSinglePlayer)
 			{
-				//Single player level has started
-				AnalyticsHelper.SinglePlayerLevelStarted(m_GameSettings.map.id);
 				//Set up single player modal
 				SetupSinglePlayerModals();
-			}
-			else
-			{
-				//Multiplayer game has started
-				AnalyticsHelper.MultiplayerGameStarted(m_GameSettings.map.id, m_GameSettings.mode.id, m_NetManager.playerCount);
 			}
 		}
 
@@ -700,22 +692,6 @@ namespace Tanks
 
 			m_RulesProcessor.MatchEnd();
 
-			if (m_GameSettings.isSinglePlayer)
-			{
-				if (m_RulesProcessor.hasWinner)
-				{
-					AnalyticsHelper.SinglePlayerLevelCompleted(m_GameSettings.map.id, 3);
-				}
-				else
-				{
-					AnalyticsHelper.SinglePlayerLevelFailed(m_GameSettings.map.id);
-				}
-			}
-			else
-			{
-				AnalyticsHelper.MultiplayerGameCompleted(m_GameSettings.map.id, m_GameSettings.mode.id, m_NumberOfPlayers, Mathf.RoundToInt(Time.timeSinceLevelLoad), m_RulesProcessor.winnerId);
-			}
-
 			m_State = GameState.PostGame;
 		}
 
@@ -936,13 +912,10 @@ namespace Tanks
 					m_RulesProcessor.HandleSuicide(killer);
 					if (m_GameSettings.isSinglePlayer)
 					{
-						AnalyticsHelper.SinglePlayerSuicide(m_GameSettings.map.id, explosionId);
 					}
 					else
 					{
 						RpcAnnounceKill(m_KillLogPhrases.GetRandomSuicidePhrase(killer.playerName, killer.playerColor));
-						AnalyticsHelper.MultiplayerSuicide(m_GameSettings.map.id, m_GameSettings.mode.id, killer.playerTankType.id, explosionId);
-						HeatmapsHelper.MultiplayerSuicide(m_GameSettings.map.id, m_GameSettings.mode.id, killer.playerTankType.id, explosionId, killer.transform.position);
 					}
 
 				}
@@ -952,9 +925,6 @@ namespace Tanks
 					if (!m_GameSettings.isSinglePlayer)
 					{
 						RpcAnnounceKill(m_KillLogPhrases.GetRandomKillPhrase(killer.playerName, killer.playerColor, killed.playerName, killed.playerColor));
-						AnalyticsHelper.MultiplayerTankKilled(m_GameSettings.map.id, m_GameSettings.mode.id, killed.playerTankType.id, killer.playerTankType.id, explosionId);
-						HeatmapsHelper.MultiplayerDeath(m_GameSettings.map.id, m_GameSettings.mode.id, killed.playerTankType.id, killer.playerTankType.id, explosionId, killed.transform.position);
-						HeatmapsHelper.MultiplayerKill(m_GameSettings.map.id, m_GameSettings.mode.id, killed.playerTankType.id, killer.playerTankType.id, explosionId, killer.transform.position);
 					}
 				}
 			}

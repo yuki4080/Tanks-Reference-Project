@@ -1,6 +1,5 @@
 using UnityEngine;
 using Tanks.TankControllers;
-using Tanks.Analytics;
 using Tanks.Networking;
 using Tanks.Utilities;
 using Tanks.Data;
@@ -94,7 +93,6 @@ namespace Tanks.UI
 			// There will be a local rules processor in single player
 			if (m_Settings.isSinglePlayer)
 			{
-				AnalyticsHelper.SinglePlayerLevelQuit(m_Settings.map.id);
 				Time.timeScale = m_OldTimeScale;
 
 				gameManager.rulesProcessor.Bail();
@@ -103,8 +101,6 @@ namespace Tanks.UI
 			{
 				netManager.Disconnect();
 				netManager.ReturnToMenu(MenuPage.Home);
-
-				AnalyticsHelper.MultiplayerGamePlayerBailed(m_Settings.map.id, m_Settings.mode.id, GameManager.s_Tanks.Count, Mathf.RoundToInt(Time.timeSinceLevelLoad), gameManager.GetLocalPlayerPosition(), gameManager.localPlayer.playerTankType.id);
 			}
 		}
 

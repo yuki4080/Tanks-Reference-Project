@@ -4,7 +4,6 @@ using Tanks.SinglePlayer;
 using Tanks.Rules.SinglePlayer.Objectives;
 using Tanks.Data;
 using Tanks.Networking;
-using Tanks.Analytics;
 
 namespace Tanks.Rules.SinglePlayer
 {
@@ -115,7 +114,6 @@ namespace Tanks.Rules.SinglePlayer
 			m_MatchOver = true;
 			m_Winner = null;
 			m_MissionFailed = true;
-			HeatmapsHelper.SinglePlayerDeath(m_Settings.map.id, tank.transform.position);
 		}
 
 		/// <summary>

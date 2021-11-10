@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AndroidAdId: 
-  m_IosAdId: 1145572
+  m_IosAdId: 
   m_DefaultZoneId: rewardedVideo
   m_DevZoneId: video
