@@ -15,22 +15,13 @@ namespace Tanks.UI
 
 		protected Button m_BackButton;
 
-		protected virtual void OnEnable()
-		{
-			m_BackButton = GetComponent<Button>();
+		protected Controls input;
 
-			s_buttonStack.Add(this);
-		}
-
-		protected virtual void OnDisable()
+		protected virtual void Awake()
 		{
-			// Pop this button
-			s_buttonStack.Remove(this);
-		}
-
-		protected virtual void Update()
-		{
-			if (Input.GetKeyDown(KeyCode.Escape))
+			input = new Controls();
+			input.Enable();
+			input.UI.Cancel.started += ctx => 
 			{
 				// Make sure we're on top of the stack and are enabled and interactive
 				if (s_buttonStack.Count > 0 &&
@@ -40,7 +31,22 @@ namespace Tanks.UI
 				{
 					OnBackPressed();
 				}
-			}
+			};
+		}
+
+		protected virtual void OnEnable()
+		{
+			m_BackButton = GetComponent<Button>();
+
+			s_buttonStack.Add(this);
+		}
+
+		protected virtual void OnDisable()
+		{
+			input.Disable();
+
+			// Pop this button
+			s_buttonStack.Remove(this);
 		}
 
 		//We use the back button logic on this screen to ensure clean closure.

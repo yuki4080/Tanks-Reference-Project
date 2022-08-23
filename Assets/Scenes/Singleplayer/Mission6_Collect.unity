@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44518995, g: 0.49480408, b: 0.57393837, a: 1}
+  m_IndirectSpecularColor: {r: 0.4450509, g: 0.49464023, b: 0.57374173, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -5668,7 +5668,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1282556335}
   - component: {fileID: 1282556334}
-  - component: {fileID: 1282556333}
+  - component: {fileID: 1282556332}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -5676,7 +5676,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1282556333
+--- !u!114 &1282556332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5685,16 +5685,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 1282556331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: HorizontalUI
-  m_VerticalAxis: VerticalUI
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: e0cef7d3be4e26e4781c08552b7e3653,
+    type: 3}
+  m_PointAction: {fileID: -902698256823845963, guid: e0cef7d3be4e26e4781c08552b7e3653,
+    type: 3}
+  m_MoveAction: {fileID: -520096813843139576, guid: e0cef7d3be4e26e4781c08552b7e3653,
+    type: 3}
+  m_SubmitAction: {fileID: -693610754143791884, guid: e0cef7d3be4e26e4781c08552b7e3653,
+    type: 3}
+  m_CancelAction: {fileID: 8690473042438219087, guid: e0cef7d3be4e26e4781c08552b7e3653,
+    type: 3}
+  m_LeftClickAction: {fileID: -6082579135383715286, guid: e0cef7d3be4e26e4781c08552b7e3653,
+    type: 3}
+  m_MiddleClickAction: {fileID: 8615343667418447726, guid: e0cef7d3be4e26e4781c08552b7e3653,
+    type: 3}
+  m_RightClickAction: {fileID: 6065532231247364518, guid: e0cef7d3be4e26e4781c08552b7e3653,
+    type: 3}
+  m_ScrollWheelAction: {fileID: -8197200319196588878, guid: e0cef7d3be4e26e4781c08552b7e3653,
+    type: 3}
+  m_TrackedDevicePositionAction: {fileID: -3374439772709335960, guid: e0cef7d3be4e26e4781c08552b7e3653,
+    type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: -8391253806749761011, guid: e0cef7d3be4e26e4781c08552b7e3653,
+    type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
 --- !u!114 &1282556334
 MonoBehaviour:
   m_ObjectHideFlags: 0

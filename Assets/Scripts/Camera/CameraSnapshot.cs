@@ -10,13 +10,19 @@ namespace Tanks.CameraControl
 	public class CameraSnapshot : MonoBehaviour
 	{
 		int m_PicCount = 0;
-	
-		void Update()
+
+		Controls input;
+
+		void Awake()
 		{
-			if (Input.GetKeyUp(KeyCode.Space))
-			{
-				StartCoroutine("TakePicture");
-			}
+			input = new Controls();
+			input.Enable();
+			input.Tank.Snapshot.canceled += ctx => StartCoroutine("TakePicture");
+		}
+
+		void OnDisable()
+		{
+			input.Disable();
 		}
 
 		IEnumerator TakePicture()

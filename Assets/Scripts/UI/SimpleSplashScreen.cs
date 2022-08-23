@@ -24,19 +24,19 @@ namespace Tanks.UI
 		[SerializeField]
 		protected PulsingUIGroup m_PulsingGroup;
 
+		Controls input;
+
+		protected virtual void Awake()
+		{
+			input = new Controls();
+			input.Enable();
+			input.UI.Submit.started += ctx => ProgressToNextScene();	//Go to menu
+		}
+
 		protected virtual void Start()
 		{
 			//Fades the logo then starts pulsing the text
 			m_FadingGroup.StartFade(Fade.In, m_FadeTime, StartPulsingText);
-		}
-
-		protected virtual void Update()
-		{
-			//Go to menu
-			if (Input.anyKeyDown)
-			{
-				ProgressToNextScene();
-			}
 		}
 
 		//Pulse the "Press Any Key" text
@@ -48,6 +48,7 @@ namespace Tanks.UI
 		//Helper for going to menu
 		private void ProgressToNextScene()
 		{
+			input.Disable();
 			SceneManager.LoadScene(m_SceneName);
 		}
 	}

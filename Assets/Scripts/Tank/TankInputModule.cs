@@ -16,6 +16,8 @@ namespace Tanks.TankControllers
 		protected int m_GroundLayerMask;
 		protected Plane m_FloorPlane;
 
+		protected Controls input;
+
 		/// <summary>
 		/// Occurs when input method changed.
 		/// </summary>
@@ -34,6 +36,9 @@ namespace Tanks.TankControllers
 
 		protected virtual void Awake()
 		{
+			input = new Controls();
+			input.Enable();
+
 			OnBecomesInactive();
 			m_Shooting = GetComponent<TankShooting>();
 			m_Movement = GetComponent<TankMovement>();
@@ -91,6 +96,8 @@ namespace Tanks.TankControllers
 
 		protected void OnDisable()
 		{
+			input.Disable();
+
 			SetDesiredMovementDirection(Vector2.zero);
 			SetFireIsHeld(false);
 		}
