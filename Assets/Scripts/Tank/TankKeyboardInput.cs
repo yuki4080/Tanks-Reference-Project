@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using System;
 
 namespace Tanks.TankControllers
@@ -17,13 +18,13 @@ namespace Tanks.TankControllers
 			}
 
 			// Mouse pos
-			if (Input.mousePresent)
+			if (Mouse.current != null)
 			{
-				bool mousePressed = Input.GetMouseButton(0);
+				bool mousePressed = input.Tank.MouseClick.IsPressed();
 
 				if (isActiveModule || mousePressed)
 				{
-					Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+					Ray mouseRay = Camera.main.ScreenPointToRay(input.Tank.MousePos.ReadValue<Vector2>());
 					float hitDist;
 					RaycastHit hit;
 					if (Physics.Raycast(mouseRay, out hit, float.PositiveInfinity, m_GroundLayerMask))
@@ -50,8 +51,8 @@ namespace Tanks.TankControllers
 
 		protected override bool DoMovementInput()
 		{
-			float y = Input.GetAxisRaw("Vertical");
-			float x = Input.GetAxisRaw("Horizontal");
+			float y = input.Tank.Move.ReadValue<Vector2>().y;
+			float x = input.Tank.Move.ReadValue<Vector2>().x;
 
 			Vector3 cameraDirection = new Vector3(x, y, 0);
 

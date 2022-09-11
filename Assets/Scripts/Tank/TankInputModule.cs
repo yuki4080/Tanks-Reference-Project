@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.InputSystem.EnhancedTouch;
 using System;
 
 namespace Tanks.TankControllers
@@ -15,6 +16,8 @@ namespace Tanks.TankControllers
 		protected TankMovement m_Movement;
 		protected int m_GroundLayerMask;
 		protected Plane m_FloorPlane;
+
+		protected Controls input;
 
 		/// <summary>
 		/// Occurs when input method changed.
@@ -34,6 +37,10 @@ namespace Tanks.TankControllers
 
 		protected virtual void Awake()
 		{
+			input = new Controls();
+			input.Enable();
+			EnhancedTouchSupport.Enable();
+
 			OnBecomesInactive();
 			m_Shooting = GetComponent<TankShooting>();
 			m_Movement = GetComponent<TankMovement>();
@@ -91,6 +98,9 @@ namespace Tanks.TankControllers
 
 		protected void OnDisable()
 		{
+			input.Disable();
+			EnhancedTouchSupport.Disable();
+
 			SetDesiredMovementDirection(Vector2.zero);
 			SetFireIsHeld(false);
 		}

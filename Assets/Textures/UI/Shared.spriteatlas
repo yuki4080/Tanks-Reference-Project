@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shared
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 2
+      m_CompressionQuality: 100
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: fe19552303a4847648ad75828cf3cb06, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 8b61b240ab65e45958c52db554fe95a4, type: 3}
+  - {fileID: 21300000, guid: f7ebe390691f34925a99a5e23b338396, type: 3}
+  - {fileID: 21300000, guid: aa2471c03908843298fc06ba9da693dc, type: 3}
+  - {fileID: 21300000, guid: d754e841e520b479d94e2616d603a304, type: 3}
+  - {fileID: 21300000, guid: f01e45a1aeb9a4e03a6beae3f0c3e400, type: 3}
+  - {fileID: 21300000, guid: 06691ef104bdc4ca2ac7c70cba3fdb42, type: 3}
+  - {fileID: 21300000, guid: 2cd08b3231b0b4870ab51a6e9c18930a, type: 3}
+  - {fileID: 21300000, guid: 1cccd2c2b29f947cabdbf08bba71dd22, type: 3}
+  - {fileID: 21300000, guid: 991da9d2dbab5462ea8ad1e3e2910f42, type: 3}
+  - {fileID: 21300000, guid: db4780e21938e437f96d7ebecc2857b9, type: 3}
+  - {fileID: 21300000, guid: 5555c6f35ca2d41e18c2868e6ac22d34, type: 3}
+  - {fileID: 21300000, guid: af44d7f34e0d54a38bba836d523deb3f, type: 3}
+  - {fileID: 21300000, guid: 3930b434e00334a73aad7e2415c0d817, type: 3}
+  - {fileID: 21300000, guid: 5cd8b1f5e7726412e83880425d2ce65a, type: 3}
+  - {fileID: 21300000, guid: d83c92f5025aa4bf9a08455b21f294db, type: 3}
+  - {fileID: 21300000, guid: 679d68078f8204d9da60af4b114dff1c, type: 3}
+  - {fileID: 21300000, guid: fc4a5d4750fd0411fa89d829905f250b, type: 3}
+  - {fileID: 21300000, guid: c4cd5e08c9fb44e8faf576db8170017c, type: 3}
+  - {fileID: 21300000, guid: 8cc28ce80f8ad453690b5824462729ec, type: 3}
+  - {fileID: 21300000, guid: dae83dd9333fc4e3da141675f6b5e4e3, type: 3}
+  - {fileID: 21300000, guid: 04ff856b0ff6a4d1ab240fc0929ef4ed, type: 3}
+  - {fileID: 21300000, guid: 74ac37cb8c41b45d294f87b25d76dbf9, type: 3}
+  - {fileID: 21300000, guid: b2e38aac7fe804fbbbb876ac69a29dac, type: 3}
+  - {fileID: 21300000, guid: 0584050e6d43b42fe85bffd55c020a53, type: 3}
+  - {fileID: 21300000, guid: 3957253ea5efc4d2889299012d239c75, type: 3}
+  - {fileID: 21300000, guid: f6b106ce8c0c143529db1802d3ff9e4e, type: 3}
+  - {fileID: 21300000, guid: 272aebfe3b41b401ab184a082fbd203e, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - panelSmall
+  - iconTank
+  - panelMain
+  - buttonNext
+  - button_pressed
+  - starInactive
+  - heart
+  - panelFloating
+  - X
+  - largeButton_white
+  - panelSmallHeading
+  - button_disabled
+  - panelEmpty
+  - panelClean
+  - panelHeading
+  - starActive
+  - largeButton_square
+  - largeButton
+  - Coin
+  - button
+  - largeButton_white_square
+  - buttonNext_pressed
+  - medalActive
+  - iconStar
+  - iconPlayertag
+  - background
+  - buttonTeamColour
+  m_Tag: Shared
+  m_IsVariant: 0

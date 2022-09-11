@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
+using TouchPhase = UnityEngine.InputSystem.TouchPhase;
 using Tanks.UI;
 using Tanks.Data;
 using Tanks.Utilities;
@@ -151,7 +153,7 @@ namespace Tanks.TankControllers
 			{
 				if (m_MovementTouch != null)
 				{
-					hud.UpdateVPad(m_PadCenter, m_MovementTouch.Value.position, true);
+					hud.UpdateVPad(m_PadCenter, m_MovementTouch.Value.screenPosition, true);
 					hud.SetVPadHeld();
 				}
 				else
@@ -174,22 +176,23 @@ namespace Tanks.TankControllers
 			m_StoppedFiring = false;
 
 			// Update input touch IDs
-			for (int i = 0; i < Input.touchCount; ++i)
+			var activeTouches = Touch.activeTouches;
+			for (int i = 0; i < activeTouches.Count; ++i)
 			{
-				Touch touch = Input.GetTouch(i);
+				Touch touch = activeTouches[i];
 
 				switch (touch.phase)
 				{
 					case TouchPhase.Began:
 						if (IsValidMovementTouch(touch))
 						{
-							m_MovementTouchId = touch.fingerId;
+							m_MovementTouchId = touch.touchId;
 							m_MovementTouch = touch;
-							m_PadCenter = touch.position;
+							m_PadCenter = touch.screenPosition;
 						}
-						else if (IsValidFireTouch(touch) && touch.fingerId != m_MovementTouchId)
+						else if (IsValidFireTouch(touch) && touch.touchId != m_MovementTouchId)
 						{
-							m_FiringTouchId = touch.fingerId;
+							m_FiringTouchId = touch.touchId;
 							m_FiringTouch = touch;
 						}
 						break;
@@ -197,14 +200,14 @@ namespace Tanks.TankControllers
 					case TouchPhase.Canceled:
 					case TouchPhase.Ended:
 						// Look for this touch
-						if (touch.fingerId == m_FiringTouchId)
+						if (touch.touchId == m_FiringTouchId)
 						{
 							m_FiringTouchId = -1;
 							m_FiringTouch = null;
 							m_StoppedFiring = true;
 						}
 
-						if (touch.fingerId == m_MovementTouchId)
+						if (touch.touchId == m_MovementTouchId)
 						{
 							m_MovementTouchId = -1;
 							m_MovementTouch = null;
@@ -215,12 +218,12 @@ namespace Tanks.TankControllers
 					case TouchPhase.Moved:
 					case TouchPhase.Stationary:
 						// Look for this touch
-						if (touch.fingerId == m_FiringTouchId)
+						if (touch.touchId == m_FiringTouchId)
 						{
 							m_FiringTouch = touch;
 						}
 
-						if (touch.fingerId == m_MovementTouchId)
+						if (touch.touchId == m_MovementTouchId)
 						{
 							m_MovementTouch = touch;
 						}
@@ -240,7 +243,7 @@ namespace Tanks.TankControllers
 			}
 			else if (m_FiringTouch != null)
 			{
-				Ray mouseRay = Camera.main.ScreenPointToRay(m_FiringTouch.Value.position);
+				Ray mouseRay = Camera.main.ScreenPointToRay(m_FiringTouch.Value.screenPosition);
 				float hitDist;
 				RaycastHit hit;
 				if (Physics.Raycast(mouseRay, out hit, float.PositiveInfinity, m_GroundLayerMask))
@@ -268,7 +271,7 @@ namespace Tanks.TankControllers
 			// Calculate desired movement direction
 			if (m_MovementTouch != null && !m_StoppedMoving)
 			{
-				Vector2 fingerpos = m_MovementTouch.Value.position;
+				Vector2 fingerpos = m_MovementTouch.Value.screenPosition;
 				Vector2 movementDir = fingerpos - m_PadCenter;
 				float magnitude = movementDir.magnitude;
 				float dpi = Screen.dpi > 0 ? Screen.dpi : 72;
@@ -336,7 +339,7 @@ namespace Tanks.TankControllers
 
 		private bool IsValidMovementTouch(Touch touch)
 		{
-			if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+			if (EventSystem.current.IsPointerOverGameObject(touch.touchId))
 			{
 				return false;
 			}
@@ -348,7 +351,7 @@ namespace Tanks.TankControllers
 			}
 
 			// True if the touch is in the lower-left corner of the screen
-			Vector2 normalizedTouch = Vector2.Scale(touch.position, new Vector2(1.0f / Screen.width, 1.0f / Screen.height));
+			Vector2 normalizedTouch = Vector2.Scale(touch.screenPosition, new Vector2(1.0f / Screen.width, 1.0f / Screen.height));
 
 			if (m_LeftyMode)
 			{
@@ -364,7 +367,7 @@ namespace Tanks.TankControllers
 
 		private bool IsValidFireTouch(Touch touch)
 		{
-			if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+			if (EventSystem.current.IsPointerOverGameObject(touch.touchId))
 			{
 				return false;
 			}

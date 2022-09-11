@@ -9,8 +9,8 @@ namespace Tanks.UI
 	{
 		protected override void OnBackPressed()
 		{
-			#if UNITY_ANDROID
-			if (Input.GetKeyDown(KeyCode.Escape))
+			#if !UNITY_ANDROID
+			if (input.UI.Cancel.WasPerformedThisFrame())
 			{
 				Application.Quit();
 			}
