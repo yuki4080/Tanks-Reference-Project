@@ -31,6 +31,7 @@ namespace Tanks.UI
 			input = new Controls();
 			input.Enable();
 			input.UI.Submit.started += ctx => ProgressToNextScene();	//Go to menu
+			input.UI.Click.performed += ctx => ProgressToNextScene();
 		}
 
 		protected virtual void Start()

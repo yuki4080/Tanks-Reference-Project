@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.InputSystem.EnhancedTouch;
 using System;
 
 namespace Tanks.TankControllers
@@ -38,6 +39,7 @@ namespace Tanks.TankControllers
 		{
 			input = new Controls();
 			input.Enable();
+			EnhancedTouchSupport.Enable();
 
 			OnBecomesInactive();
 			m_Shooting = GetComponent<TankShooting>();
@@ -97,6 +99,7 @@ namespace Tanks.TankControllers
 		protected void OnDisable()
 		{
 			input.Disable();
+			EnhancedTouchSupport.Disable();
 
 			SetDesiredMovementDirection(Vector2.zero);
 			SetFireIsHeld(false);
